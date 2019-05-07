@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon Mechanical Turk MSP Connector
+# ![LOGO](logo.png) Amazon Mechanical Turk **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon Mechanical Turk API (version 2017-01-17).
+A generated **flow**ground connector for the Amazon Mechanical Turk API (version 2017-01-17).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/mturk-requester/2017-01-17/swagger.json<br/>
-Generated at: 2019-05-07T11:16:21+03:00
+Generated at: 2019-05-07T17:36:02+03:00
 
 ## API Description
 
@@ -526,7 +526,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-mturk-requester-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-mturk-requester-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
