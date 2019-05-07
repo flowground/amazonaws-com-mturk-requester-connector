@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AssignmentId": {
+                    "description": "The ID of the assignment for which this bonus is paid.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "BonusAmount": {
+                    "description": " The Bonus amount is a US Dollar amount specified using a string (for example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42 USD). Do not include currency symbols or currency codes. ",
+                    "pattern": "^[0-9]+(\\.)?[0-9]{0,2}$",
+                    "type": "string"
+                },
+                "Reason": {
+                    "description": "A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.",
+                    "type": "string"
+                },
+                "UniqueRequestToken": {
+                    "description": "A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "WorkerId": {
+                    "description": "The ID of the Worker being paid the bonus.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^A[A-Z0-9]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WorkerId",
+                "BonusAmount",
+                "AssignmentId",
+                "Reason"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

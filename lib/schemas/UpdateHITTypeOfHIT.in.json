@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "HITId": {
+                    "description": "The HIT to update.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "HITTypeId": {
+                    "description": "The ID of the new HIT type.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "HITId",
+                "HITTypeId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

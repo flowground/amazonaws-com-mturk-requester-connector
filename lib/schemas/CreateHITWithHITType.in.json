@@ -1,0 +1,218 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AssignmentReviewPolicy": {
+                    "description": " The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy. ",
+                    "properties": {
+                        "Parameters": {
+                            "description": "Name of the parameter from the Review policy.",
+                            "items": {
+                                "description": " Name of the parameter from the Review policy. ",
+                                "properties": {
+                                    "Key": {
+                                        "description": " Name of the parameter from the list of Review Polices. ",
+                                        "type": "string"
+                                    },
+                                    "MapEntries": {
+                                        "description": " List of ParameterMapEntry objects. ",
+                                        "items": {
+                                            "description": " This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. ",
+                                            "properties": {
+                                                "Key": {
+                                                    "description": " The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy. ",
+                                                    "type": "string"
+                                                },
+                                                "Values": {
+                                                    "description": " The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly. ",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "Values": {
+                                        "description": " The list of values of the Parameter",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "PolicyName": {
+                            "description": " Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 ",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PolicyName"
+                    ],
+                    "type": "object"
+                },
+                "HITLayoutId": {
+                    "description": "<p> The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters. </p> <p> Constraints: Either a Question parameter or a HITLayoutId parameter must be provided. </p>",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "HITLayoutParameters": {
+                    "description": " If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout. ",
+                    "items": {
+                        "description": " The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. ",
+                        "properties": {
+                            "Name": {
+                                "description": " The name of the parameter in the HITLayout. ",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value substituted for the parameter referenced in the HITLayout. ",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "HITReviewPolicy": {
+                    "description": " The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy. ",
+                    "properties": {
+                        "Parameters": {
+                            "description": "Name of the parameter from the Review policy.",
+                            "items": {
+                                "description": " Name of the parameter from the Review policy. ",
+                                "properties": {
+                                    "Key": {
+                                        "description": " Name of the parameter from the list of Review Polices. ",
+                                        "type": "string"
+                                    },
+                                    "MapEntries": {
+                                        "description": " List of ParameterMapEntry objects. ",
+                                        "items": {
+                                            "description": " This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. ",
+                                            "properties": {
+                                                "Key": {
+                                                    "description": " The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy. ",
+                                                    "type": "string"
+                                                },
+                                                "Values": {
+                                                    "description": " The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly. ",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "Values": {
+                                        "description": " The list of values of the Parameter",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "PolicyName": {
+                            "description": " Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 ",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PolicyName"
+                    ],
+                    "type": "object"
+                },
+                "HITTypeId": {
+                    "description": "The HIT type ID you want to create this HIT with.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "LifetimeInSeconds": {
+                    "description": " An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted. ",
+                    "type": "integer"
+                },
+                "MaxAssignments": {
+                    "description": " The number of times the HIT can be accepted and completed before the HIT becomes unavailable. ",
+                    "type": "integer"
+                },
+                "Question": {
+                    "description": "<p> The data the person completing the HIT uses to produce the results. </p> <p> Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure, or an HTMLQuestion data structure. The XML question data must not be larger than 64 kilobytes (65,535 bytes) in size, including whitespace. </p> <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>",
+                    "type": "string"
+                },
+                "RequesterAnnotation": {
+                    "description": "<p> An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT. </p> <p> The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester. </p> <p> The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped. </p>",
+                    "type": "string"
+                },
+                "UniqueRequestToken": {
+                    "description": "<p> A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId. </p> <note> <p> Note: It is your responsibility to ensure uniqueness of the token. The unique token expires after 24 hours. Subsequent calls using the same UniqueRequestToken made after the 24 hour limit could create duplicate HITs. </p> </note>",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "HITTypeId",
+                "LifetimeInSeconds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

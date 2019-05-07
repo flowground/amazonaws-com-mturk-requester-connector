@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "HITTypeId": {
+                    "description": " The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered ",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "MaxResults": {
+                    "description": " Limit the number of results returned. ",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "Pagination Token",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Status": {
+                    "description": " Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. ",
+                    "enum": [
+                        "Reviewable",
+                        "Reviewing"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

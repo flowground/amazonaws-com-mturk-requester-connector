@@ -1,0 +1,110 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Active": {
+                    "description": " Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. ",
+                    "type": "boolean"
+                },
+                "HITTypeId": {
+                    "description": " The ID of the HIT type whose notification specification is being updated. ",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "Notification": {
+                    "description": " The notification specification for the HIT type. ",
+                    "properties": {
+                        "Destination": {
+                            "description": "<p> The target for notification messages. The Destination’s format is determined by the specified Transport: </p> <ul> <li> <p>When Transport is Email, the Destination is your email address.</p> </li> <li> <p>When Transport is SQS, the Destination is your queue URL.</p> </li> <li> <p>When Transport is SNS, the Destination is the ARN of your topic.</p> </li> </ul>",
+                            "type": "string"
+                        },
+                        "EventTypes": {
+                            "description": " The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation. ",
+                            "items": {
+                                "enum": [
+                                    "AssignmentAccepted",
+                                    "AssignmentAbandoned",
+                                    "AssignmentReturned",
+                                    "AssignmentSubmitted",
+                                    "AssignmentRejected",
+                                    "AssignmentApproved",
+                                    "HITCreated",
+                                    "HITExpired",
+                                    "HITReviewable",
+                                    "HITExtended",
+                                    "HITDisposed",
+                                    "Ping"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Transport": {
+                            "description": " The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS. ",
+                            "enum": [
+                                "Email",
+                                "SQS",
+                                "SNS"
+                            ],
+                            "type": "string"
+                        },
+                        "Version": {
+                            "description": "The version of the Notification API to use. Valid value is 2006-05-05.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Destination",
+                        "Transport",
+                        "Version",
+                        "EventTypes"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "HITTypeId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

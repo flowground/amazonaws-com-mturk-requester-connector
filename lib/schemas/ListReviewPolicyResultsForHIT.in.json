@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "HITId": {
+                    "description": "The unique identifier of the HIT to retrieve review results for.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Z0-9]+$",
+                    "type": "string"
+                },
+                "MaxResults": {
+                    "description": "Limit the number of results returned.",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "Pagination token",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "PolicyLevels": {
+                    "description": " The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies. ",
+                    "items": {
+                        "enum": [
+                            "Assignment",
+                            "HIT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "RetrieveActions": {
+                    "description": " Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes. ",
+                    "type": "boolean"
+                },
+                "RetrieveResults": {
+                    "description": " Specify if the operation should retrieve a list of the results computed by the Review Policies. ",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "HITId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
