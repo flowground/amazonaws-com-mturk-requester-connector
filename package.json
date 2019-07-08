@@ -1,7 +1,7 @@
 {
     "name": "amazonaws-com-mturk-requester-connector",
     "version": "2017.0.0",
-    "description": "<fullname>Amazon Mechanical Turk API Reference</fullname>",
+    "description": "Amazon Mechanical Turk API Reference",
     "main": "component.json",
     "dependencies": {
         "elasticio-node": "0.0.9",
